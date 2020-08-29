@@ -1,0 +1,60 @@
+What is null space of a matrix?
+
+Null space of a matrix A is the collection of the vectors, v, for which Av = 0.
+
+
+
+Why rank(X) = rank(X^TX)?
+
+Xv = 0 => X^TXv = 0  So, null(X^TX) contains null(X). So, rank(x) >= rank(X^TX).
+
+X^TXv = 0 => V^T X^T Xv = 0 => Xv = 0. So, null(X) contains null(X^TX). So, rank(X^TX) >= rank(X).
+
+So, rank(x) = rank(X^TX).
+
+
+
+When a square matrix is singular?
+
+A square matrix M is singular iff there exists a v (v is not null vector) such that Mv = 0, ie. it has linearly dependent columns.
+
+Proof:
+If part:
+If Mv = 0, ie. if it has linearly dependent columns then in the process of determinant calculation, doing the corresponding transformation we get a column of 0s. Expanding with respect
+this column we get determinant 0.
+
+Only if part:
+Same as the if part, if determinant is 0, then in the determinant calculation procedure we must get a column of 0, with suitable transformation. So, this is the definition of linear
+dependence between columns.
+
+
+Example:
+Is this matrix singular, 
+(1   3
+ 2   4)?
+
+Let c1, c2 be the two columns. c2 = c1 + 2. So, the two columns are linearly related, so are the columns linearly dependent? No, as c1 or c2 is not scalar multiplication of the other.
+So, this matrix is not singular.
+
+Example:
+Is this matrix singular,
+(1   3
+ 2   6)?
+
+Yes, it is singular, as c2 = c1 * 3.
+
+Example:
+Is this matrix singular,
+(1    4    7
+ 2    5    8
+ 3    6    9)?
+
+Yes, it is singular, as -1 * c1 + 2*c2 = c3.
+
+
+
+Why multicollinearity is problem in regression analysis?
+
+If multicollinearity is present in the data matrix X(pxp), then one column of X (ie. an explanatory variable) is linear combination of other columns. So, X is of not full column rank.
+Again, rank(X^TX) = rank(X). So, X^TX is of not full rank. So, determinant(X^TX) = 0.
+Now, estimates of the parameters is (X^TX)^-1X^TY. As, determinant of X^TX = 0, so, X^TX is not invertible. So, parameters become inestimable.
